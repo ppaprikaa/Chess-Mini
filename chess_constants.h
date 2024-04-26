@@ -1,9 +1,19 @@
 #pragma once
+#include "typedef.h"
 
 // sides to move
 enum {
 	white, black
 };
+
+// not_<file> - bitboard with all bits set to 1 except <file> bits
+extern const bitboard bitboard_not_a_file;
+extern const bitboard bitboard_not_h_file;
+extern const bitboard bitboard_not_b_file;
+extern const bitboard bitboard_not_g_file;
+extern const bitboard bitboard_not_gh_file;
+extern const bitboard bitboard_not_ab_file;
+extern const bitboard pawn_attacks[2][64];
 
 // squares
 // ! in bitboards order !
@@ -28,4 +38,3 @@ enum {
 "a2","b2","c2","d2","e2","f2","g2","h2",
 "a1","b1","c1","d1","e1","f1","g1","h1",
 */
-
