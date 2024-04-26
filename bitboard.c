@@ -61,3 +61,22 @@ bitboard bitboard_knight_attack_mask(unsigned long long square) {
 
 	return attacks;
 }
+
+bitboard bitboard_king_attack_mask(unsigned long long square) {
+	bitboard attacks = 0ULL;
+	bitboard piece = 0ULL;	
+	PUT_BIT(piece, square);
+
+	if (piece >> 8) attacks |= piece >> 8;
+	if (piece << 8) attacks |= piece << 8;
+
+	if ((piece >> 9) & bitboard_not_h_file) attacks |= piece >> 9;
+	if ((piece >> 7) & bitboard_not_a_file) attacks |= piece >> 7;
+	if ((piece << 9) & bitboard_not_a_file) attacks |= piece << 9;
+	if ((piece << 7) & bitboard_not_h_file) attacks |= piece << 7;
+	
+	if ((piece >> 1) & bitboard_not_h_file) attacks |= piece >> 1;
+	if ((piece << 1) & bitboard_not_a_file) attacks |= piece << 1;
+
+	return attacks;
+}
