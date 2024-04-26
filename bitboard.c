@@ -35,3 +35,29 @@ bitboard bitboard_pawn_attack_mask(unsigned long long square, int side) {
 
 	return attacks;
 }
+
+bitboard bitboard_knight_attack_mask(unsigned long long square) {
+	bitboard attacks = 0ULL;
+	bitboard piece = 0ULL;	
+	PUT_BIT(piece, square);
+
+	if((piece >> 17) & bitboard_not_h_file) 
+		attacks |= (piece >> 17);
+	if((piece >> 15) & bitboard_not_a_file)
+		attacks |= (piece >> 15);
+	if((piece >> 10) & bitboard_not_gh_file)
+		attacks |= (piece >> 10);
+	if((piece >> 6) & bitboard_not_ab_file) 
+		attacks |= (piece >> 6);
+
+	if((piece << 17) & bitboard_not_a_file) 
+		attacks |= (piece << 17);
+	if((piece << 15) & bitboard_not_h_file)
+		attacks |= (piece << 15);
+	if((piece << 10) & bitboard_not_ab_file)
+		attacks |= (piece << 10);
+	if((piece << 6) & bitboard_not_gh_file) 
+		attacks |= (piece << 6);
+
+	return attacks;
+}
