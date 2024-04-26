@@ -3,16 +3,15 @@
 #include "bitboard.h"
 
 int main(int argc, char* argv[argc + 1]) {
-	for (size_t i = 0; i < 8; i++) {
-		for (size_t j = 0; j < 8; j++) {
-			bitboard square = i * 8 + j;
-			bitboard knight_attacks_mask = bitboard_knight_attack_mask(square);
-			bitboard_print(knight_attacks_mask);
-			if (knight_attacks_mask != knight_attacks[square]) {
+	for(size_t rank = 0; rank < 8; rank++) {
+		for (size_t file = 0; file < 8; file++) {
+			size_t square = rank * 8 + file;
+			bitboard king_attack = bitboard_king_attack_mask(square);
+			bitboard_print(king_attack);
+			if (king_attack != king_attacks[square]) {
 				exit(1);
 			}
 		}
 	}
-
 	return EXIT_SUCCESS;
 }
