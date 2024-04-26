@@ -13,6 +13,8 @@ extern const bitboard bitboard_not_b_file;
 extern const bitboard bitboard_not_g_file;
 extern const bitboard bitboard_not_gh_file;
 extern const bitboard bitboard_not_ab_file;
+
+// pawn attacks table
 extern const bitboard pawn_attacks[2][64];
 
 // squares
