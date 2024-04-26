@@ -80,3 +80,18 @@ bitboard bitboard_king_attack_mask(unsigned long long square) {
 
 	return attacks;
 }
+
+bitboard bitboard_bishop_attack_mask(unsigned long long square) {
+	bitboard attacks = 0ULL;
+
+	int r, f;
+	int pr = square / 8, pf = square % 8;
+
+	for (r = pr + 1, f = pf + 1; r <= 6 && f <= 6; r++, f++) attacks |= (1ULL << (r * 8 + f));
+	for (r = pr - 1, f = pf - 1; r >= 1 && f >= 1; r--, f--) attacks |= (1ULL << (r * 8 + f));
+
+	for (r = pr + 1, f = pf - 1; r <= 6 && f >= 1; r++, f--) attacks |= (1ULL << (r * 8 + f));
+	for (r = pr - 1, f = pf + 1; r >= 1 && f <= 6; r--, f++) attacks |= (1ULL << (r * 8 + f));
+
+	return attacks;
+}
