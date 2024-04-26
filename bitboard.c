@@ -15,3 +15,23 @@ void bitboard_print(bitboard board) {
 	printf("   a b c d e f g h\n");
 	printf("\n\n   Bitboard: %llu\n", board);
 }
+
+bitboard bitboard_pawn_attack_mask(unsigned long long square, int side) {
+	bitboard attacks = 0ULL;
+	bitboard piece = 0ULL;	
+	PUT_BIT(piece, square);
+
+	if (side == 0) {
+		if((piece >> 7) & bitboard_not_a_file) 
+			attacks |= (piece >> 7);
+		if((piece >> 9) & bitboard_not_h_file)
+			attacks |= (piece >> 9);
+	} else {
+		if((piece << 7) & bitboard_not_h_file) 
+			attacks |= (piece << 7);
+		if((piece << 9) & bitboard_not_a_file)
+			attacks |= (piece << 9);
+	}
+
+	return attacks;
+}
