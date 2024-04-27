@@ -87,11 +87,10 @@ bitboard bitboard_bishop_attack_mask(unsigned long long square) {
 	int r, f;
 	int pr = square / 8, pf = square % 8;
 
-	for (r = pr + 1, f = pf + 1; r <= 6 && f <= 6; r++, f++) attacks |= (1ULL << (r * 8 + f));
-	for (r = pr - 1, f = pf - 1; r >= 1 && f >= 1; r--, f--) attacks |= (1ULL << (r * 8 + f));
-
-	for (r = pr + 1, f = pf - 1; r <= 6 && f >= 1; r++, f--) attacks |= (1ULL << (r * 8 + f));
-	for (r = pr - 1, f = pf + 1; r >= 1 && f <= 6; r--, f++) attacks |= (1ULL << (r * 8 + f));
+	for (r = pr + 1, f = pf + 1; r <= 6 && f <= 6; r++, f++) PUT_BIT(attacks, (r * 8 + f));
+	for (r = pr - 1, f = pf - 1; r >= 1 && f >= 1; r--, f--) PUT_BIT(attacks, (r * 8 + f));
+	for (r = pr + 1, f = pf - 1; r <= 6 && f >= 1; r++, f--) PUT_BIT(attacks, (r * 8 + f));
+	for (r = pr - 1, f = pf + 1; r >= 1 && f <= 6; r--, f++) PUT_BIT(attacks, (r * 8 + f));
 
 	return attacks;
 }
@@ -103,11 +102,11 @@ bitboard bitboard_rook_attack_mask(unsigned long long square) {
 	int pr = square / 8, pf = square % 8;
 
 	f = pf;
-	for (r = pr + 1; r <= 6; r++) attacks |= (1ULL << (r * 8 + f));
-	for (r = pr - 1; r >= 1; r--) attacks |= (1ULL << (r * 8 + f));
+	for (r = pr + 1; r <= 6; r++) PUT_BIT(attacks, (r * 8 + f));
+	for (r = pr - 1; r >= 1; r--) PUT_BIT(attacks, (r * 8 + f));
 	r = pr;
-	for (f = pf + 1; f <= 6; f++) attacks |= (1ULL << (r * 8 + f));
-	for (f = pf - 1; f >= 1; f--) attacks |= (1ULL << (r * 8 + f));
+	for (f = pf + 1; f <= 6; f++) PUT_BIT(attacks, (r * 8 + f));
+	for (f = pf - 1; f >= 1; f--) PUT_BIT(attacks, (r * 8 + f));
 
 	return attacks;
 }
