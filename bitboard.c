@@ -110,3 +110,30 @@ bitboard bitboard_rook_attack_mask(bitboard square) {
 
 	return attacks;
 }
+
+bitboard bitboard_bishop_attack_mask_blocked(bitboard square, bitboard block) {
+	bitboard attacks = 0ULL;
+
+	int r, f;
+	int pr = square / 8, pf = square % 8;
+
+	for (r = pr + 1, f = pf + 1; r <= 7 && f <= 7; r++, f++) {
+		PUT_BIT(attacks, (r * 8 + f));
+		if ((1ULL << (r * 8 + f)) & block) break;
+	}
+	for (r = pr - 1, f = pf - 1; r >= 0 && f >= 0; r--, f--) {
+		PUT_BIT(attacks, (r * 8 + f));
+		if ((1ULL << (r * 8 + f)) & block) break;
+	}
+	for (r = pr + 1, f = pf - 1; r <= 7 && f >= 0; r++, f--) {
+		PUT_BIT(attacks, (r * 8 + f));
+		if ((1ULL << (r * 8 + f)) & block) break;
+	}
+	for (r = pr - 1, f = pf + 1; r >= 0 && f <= 7; r--, f++) {
+		PUT_BIT(attacks, (r * 8 + f));
+		if ((1ULL << (r * 8 + f)) & block) break;
+	}
+	
+
+	return attacks;
+}
