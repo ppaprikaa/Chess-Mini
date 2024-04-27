@@ -16,7 +16,7 @@ void bitboard_print(bitboard board) {
 	printf("\n\n   Bitboard: %llu\n", board);
 }
 
-bitboard bitboard_pawn_attack_mask(unsigned long long square, int side) {
+bitboard bitboard_pawn_attack_mask(bitboard square, int side) {
 	bitboard attacks = 0ULL;
 	bitboard piece = 0ULL;	
 	PUT_BIT(piece, square);
@@ -36,7 +36,7 @@ bitboard bitboard_pawn_attack_mask(unsigned long long square, int side) {
 	return attacks;
 }
 
-bitboard bitboard_knight_attack_mask(unsigned long long square) {
+bitboard bitboard_knight_attack_mask(bitboard square) {
 	bitboard attacks = 0ULL;
 	bitboard piece = 0ULL;	
 	PUT_BIT(piece, square);
@@ -62,7 +62,7 @@ bitboard bitboard_knight_attack_mask(unsigned long long square) {
 	return attacks;
 }
 
-bitboard bitboard_king_attack_mask(unsigned long long square) {
+bitboard bitboard_king_attack_mask(bitboard square) {
 	bitboard attacks = 0ULL;
 	bitboard piece = 0ULL;	
 	PUT_BIT(piece, square);
@@ -81,7 +81,7 @@ bitboard bitboard_king_attack_mask(unsigned long long square) {
 	return attacks;
 }
 
-bitboard bitboard_bishop_attack_mask(unsigned long long square) {
+bitboard bitboard_bishop_attack_mask(bitboard square) {
 	bitboard attacks = 0ULL;
 
 	int r, f;
@@ -95,7 +95,7 @@ bitboard bitboard_bishop_attack_mask(unsigned long long square) {
 	return attacks;
 }
 
-bitboard bitboard_rook_attack_mask(unsigned long long square) {
+bitboard bitboard_rook_attack_mask(bitboard square) {
 	bitboard attacks = 0ULL;
 
 	int r, f;
