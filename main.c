@@ -3,10 +3,9 @@
 #include "bitboard.h"
 
 int main(int argc, char* argv[argc + 1]) {
-	for (size_t r = 0; r < 8; r++) {
-	
-		for (size_t f = 0; f < 8; f++) {
-			bitboard_print(bitboard_bishop_attack_mask(r * 8 + f));
+	for (int rank = 0; rank < 8; rank++) {
+		for (int file = 0; file < 8; file++) {
+			bitboard_print(bitboard_rook_attack_mask(rank * 8 + file));
 		}
 	}
 
