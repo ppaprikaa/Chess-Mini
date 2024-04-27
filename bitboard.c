@@ -95,3 +95,19 @@ bitboard bitboard_bishop_attack_mask(unsigned long long square) {
 
 	return attacks;
 }
+
+bitboard bitboard_rook_attack_mask(unsigned long long square) {
+	bitboard attacks = 0ULL;
+
+	int r, f;
+	int pr = square / 8, pf = square % 8;
+
+	f = pf;
+	for (r = pr + 1; r <= 6; r++) attacks |= (1ULL << (r * 8 + f));
+	for (r = pr - 1; r >= 1; r--) attacks |= (1ULL << (r * 8 + f));
+	r = pr;
+	for (f = pf + 1; f <= 6; f++) attacks |= (1ULL << (r * 8 + f));
+	for (f = pf - 1; f >= 1; f--) attacks |= (1ULL << (r * 8 + f));
+
+	return attacks;
+}
