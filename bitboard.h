@@ -17,4 +17,5 @@ bitboard bitboard_rook_attack_mask(bitboard square);
 bitboard bitboard_bishop_attack_mask_blocked(bitboard square, bitboard block);
 bitboard bitboard_rook_attack_mask_blocked(bitboard square, bitboard block);
 
+// counts bitcount
 size_t bitboard_bitcount(bitboard board);
