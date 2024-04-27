@@ -171,3 +171,11 @@ size_t bitboard_bitcount(bitboard board) {
 	while(board) { board &= board - 1; count++; }
 	return count;
 }
+
+int bitboard_find_lsb_index(bitboard board) {
+	if (board) {
+		return bitboard_bitcount((board & -board) - 1);
+	}
+
+	return -1;
+}

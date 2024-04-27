@@ -19,3 +19,6 @@ bitboard bitboard_rook_attack_mask_blocked(bitboard square, bitboard block);
 
 // counts bitcount
 size_t bitboard_bitcount(bitboard board);
+
+//returns -1 if bitboard is zero, otherwise index of least significant bit
+int bitboard_find_lsb_index(bitboard board);
