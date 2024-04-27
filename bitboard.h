@@ -1,4 +1,6 @@
 #pragma once
+#include <stddef.h>
+
 #include "typedef.h"
 #include "chess_constants.h"
 
@@ -14,3 +16,5 @@ bitboard bitboard_rook_attack_mask(bitboard square);
 
 bitboard bitboard_bishop_attack_mask_blocked(bitboard square, bitboard block);
 bitboard bitboard_rook_attack_mask_blocked(bitboard square, bitboard block);
+
+size_t bitboard_bitcount(bitboard board);

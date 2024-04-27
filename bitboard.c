@@ -165,3 +165,9 @@ bitboard bitboard_rook_attack_mask_blocked(bitboard square, bitboard block) {
 
 	return attacks;
 }
+
+size_t bitboard_bitcount(bitboard board) {
+	size_t count = 0;
+	while(board) { board &= board - 1; count++; }
+	return count;
+}
