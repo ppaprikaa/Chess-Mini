@@ -166,6 +166,20 @@ bitboard bitboard_rook_attack_mask_blocked(bitboard square, bitboard block) {
 	return attacks;
 }
 
+bitboard bitboard_set_occupancy(bitboard index, size_t attack_mask_bitcount, bitboard attack_mask) {
+	bitboard occupancy = 0ULL;
+	
+	for (size_t i = 0; i < attack_mask_bitcount; i++) {
+		int lsb = bitboard_find_lsb_index(attack_mask);
+		POP_BIT(attack_mask, lsb);
+		if (index & (1 << i)) {
+			occupancy |= (1ULL << lsb);
+		}
+	}
+
+	return occupancy;
+}
+
 size_t bitboard_bitcount(bitboard board) {
 	size_t count = 0;
 	while(board) { board &= board - 1; count++; }
