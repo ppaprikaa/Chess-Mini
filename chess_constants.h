@@ -18,6 +18,7 @@ extern const bitboard bitboard_not_ab_file;
 extern const bitboard pawn_attacks[2][64];
 extern const bitboard knight_attacks[64];
 extern const bitboard bishop_attacks[64];
+extern const bitboard rook_attacks[64];
 extern const bitboard king_attacks[64];
 
 // squares
