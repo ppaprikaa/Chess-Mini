@@ -43,7 +43,7 @@ const bitboard knight_attacks[64] = {
      1128098930098176ULL,      2257297371824128ULL,      4796069720358912ULL,      9592139440717824ULL,     19184278881435648ULL,     38368557762871296ULL,      4679521487814656ULL,      9077567998918656ULL, 
 };
 
-const bitboard bishop_attacks[64] = {
+const int bishop_attack_bits_bitcount[64] = {
 	 6,  5,  5,  5,  5,  5,  5,  6, 
 	 5,  5,  5,  5,  5,  5,  5,  5, 
 	 5,  5,  7,  7,  7,  7,  5,  5, 
@@ -54,7 +54,7 @@ const bitboard bishop_attacks[64] = {
 	 6,  5,  5,  5,  5,  5,  5,  6,
 };
 
-const bitboard rook_attacks[64] = {
+const int rook_attack_bits_bitcount[64] = {
 	12, 11, 11, 11, 11, 11, 11, 12, 
 	11, 10, 10, 10, 10, 10, 10, 11, 
 	11, 10, 10, 10, 10, 10, 10, 11, 
