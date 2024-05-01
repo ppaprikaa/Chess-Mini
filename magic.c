@@ -1,4 +1,4 @@
-#include "random.h"
+#include "magic.h"
 
 unsigned int rand = 1681692777;
 
