@@ -1,4 +1,4 @@
-SOURCE_FILES=main.c bitboard.c chess_constants.c
+SOURCE_FILES=main.c bitboard.c chess_constants.c magic.c
 
 build:
 	clang -o main -Wall -Werror $(SOURCE_FILES)
