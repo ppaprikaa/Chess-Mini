@@ -1,5 +1,4 @@
 #include "random.h"
-#include "stdio.h"
 
 unsigned int rand = 1681692777;
 
