@@ -10,8 +10,8 @@ unsigned int uint_random() {
 	unsigned int num = seed;	
 
 	num ^= num << 13;	
-	num ^= num >> 13;
-	num ^= num << 13;	
+	num ^= num >> 17;
+	num ^= num << 5;	
 	
 	seed = num;
 	return num;
