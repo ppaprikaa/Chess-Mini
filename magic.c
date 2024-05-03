@@ -2,7 +2,6 @@
 #include "bitboard.h"
 
 #include <string.h>
-#include <stdio.h>
 
 unsigned int seed = 1804289383;
 
