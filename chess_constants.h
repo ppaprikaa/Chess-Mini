@@ -21,6 +21,11 @@ extern const int bishop_attack_bits_bitcount[64];
 extern const int rook_attack_bits_bitcount[64];
 extern const bitboard king_attacks[64];
 
+// sliding pieces
+enum {
+	rook, bishop
+};
+
 // squares
 // ! in bitboards order !
 enum {
