@@ -6,6 +6,7 @@
 
 unsigned int seed = 1804289383;
 
+// xorshift32 algorithm: https://stackoverflow.com/a/53886716
 unsigned int uint_random() {
 	unsigned int num = seed;	
 
