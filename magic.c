@@ -77,7 +77,6 @@ bitboard find_magic_number(int square, int relevant_bits, int sliding_piece) {
 		if (!fail)
 			return magic_number;
 	}
-	printf("%d\n", try);
-	printf("magic number failed\n");
+
 	return 0ULL;
 }
